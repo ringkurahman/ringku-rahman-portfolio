@@ -3,14 +3,13 @@ import { config } from 'react-spring/renderprops'
 import Grid from './Grid'
 import { Slug, Fade } from './Primitives'
 import { Col, Row, Image } from 'react-bootstrap'
-import CreativeAgency from '../images/creative-agency.png'
 import data from './data'
 import './ProjectArea.css'
 
 
 class Cell extends Component {
   render() {
-    const { toggle, name, description, css, active } = this.props
+    const { toggle, name, description, image, githuburl, liveurl, css, active } = this.props
     return (
           <div
             className="cell"
@@ -24,12 +23,12 @@ class Cell extends Component {
                         <h1>{name}</h1>
                         <p>{description}</p>
                     <Col className='mt-4'>
-                    <a className='btn btn-secondary mr-2' href="http://" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a className='btn btn-primary' href="http://" target="_blank" rel="noopener noreferrer">Website</a>                   
+                    <a className='btn btn-secondary mr-2' href={githuburl} target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a className='btn btn-primary' href={liveurl} target="_blank" rel="noopener noreferrer">Website</a>                   
                     </Col>
                     </Col>
                     <Col xs={12} sm={12} md={6} className=''>
-                        <Image className="project-image" src={CreativeAgency} fluid />
+                        <Image className="project-image" src={image} fluid />
                     </Col>
                 </Row>
                 </Slug>

@@ -5,6 +5,10 @@ import Footer from './components/Footer'
 import HeroArea from './components/HeroArea'
 import ProjectsArea from './components/ProjectsArea'
 import ProjectsHeading from './components/ProjectsHeading'
+import ResumeHeading from './components/ResumeHeading'
+import ResumeArea from './components/ResumeArea'
+import BlogHeading from './components/BlogHeading'
+import BlogArea from './components/BlogArea'
 
 
 const App = () => {
@@ -15,10 +19,16 @@ const App = () => {
         <HeroArea />
         <ProjectsHeading />
         <ProjectsArea />
+        <ResumeHeading />
+        <ResumeArea />
+        <BlogHeading />
+        <BlogArea />
       </main>
       <Footer />
-    </Router>
+      </Router>
   );
 }
 
 export default App;
+
+
