@@ -1,33 +1,26 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import ParticlesBg from "particles-bg";
+import ParticlesBg from "particles-bg"
 import Header from './components/Header'
 import Footer from './components/Footer'
-import HeroArea from './components/HeroArea'
-import ProjectsArea from './components/ProjectsArea'
-import ProjectsHeading from './components/ProjectsHeading'
-import ResumeHeading from './components/ResumeHeading'
-import ResumeArea from './components/ResumeArea'
-import BlogHeading from './components/BlogHeading'
-import BlogArea from './components/BlogArea'
-import ContactHeading from './components/ContactHeading'
-import ContactArea from './components/ContactArea'
+import Homepage from './pages/Homepage'
+import Projects from './pages/Projects'
+import Resume from './pages/Resume'
+import Blog from './pages/Blog'
+import AboutMe from './pages/AboutMe'
+
 
 
 const App = () => {
   return (
     <Router>
       <Header />
-      <main className="py-5">
-        <HeroArea />
-        <ProjectsHeading />
-        <ProjectsArea />
-        <ResumeHeading />
-        <ResumeArea />
-        <BlogHeading />
-        <BlogArea />
-        <ContactHeading />
-        <ContactArea />
+        <main className="py-5">
+        <Route exact path='/' component={Homepage} />
+        <Route exact path='/projects' component={Projects} />
+        <Route exact path='/resume' component={Resume} />
+        <Route exact path='/blog' component={Blog} />
+        <Route exact path='/about' component={AboutMe} />
       </main>
       <Footer />
        <ParticlesBg type="random" bg={true}/>
