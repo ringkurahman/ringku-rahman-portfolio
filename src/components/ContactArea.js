@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import emailjs from 'emailjs-com'
-import Recaptcha from 'react-recaptcha'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ModalFormContainer from './ModalFormContainer'
@@ -67,10 +66,6 @@ const ContactArea = () => {
         }
     }
 
-    const recaptchaLoaded = () => {
-        console.log('recaptcha loaded')
-    }
-
     return (
         <>
            <svg style={{ position: 'absolute', width: 0, height: 0 }}>
@@ -124,11 +119,6 @@ const ContactArea = () => {
                             <div className='mt-4'>
                             <Button type='submit' variant='primary' value='send'>Submit</Button>
                             </div>
-                            <Recaptcha
-                                sitekey="6Lcr-twZAAAAAC6eUnqjI8hoS8CE_fOn8nupgtYh"
-                                render="explicit"
-                                onloadCallback={recaptchaLoaded}
-                            />
                         </Form>
                     </ModalFormContainer>
                     <Col className="media-icon d-flex justify-content-center mt-5">

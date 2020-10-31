@@ -9,6 +9,7 @@ import ProjectsHeading from '../components/ProjectsHeading'
 import ResumeArea from '../components/ResumeArea'
 import ResumeHeading from '../components/ResumeHeading'
 
+
 const Homepage = () => {
     return (
         <>

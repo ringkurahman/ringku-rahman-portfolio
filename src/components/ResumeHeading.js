@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 
 const ResumeHeading = () => {
     return (
-        <Container className='my-5' id='projects'>
+        <Container className='my-5' id='resume'>
             <Row>
                 <Col>
                     <h2 className="display-4 text-uppercase text-center">Resume</h2>
