@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import emailjs from 'emailjs-com'
-import Recaptcha from 'react-recaptcha'
 import { Button, Form, Modal } from 'react-bootstrap'
 import ModalFormContainer from './ModalFormContainer'
 
@@ -55,10 +54,6 @@ const ModalForm = ({ handleClose, handleShow, show }) => {
         }
     }
 
-    const recaptchaLoaded = () => {
-        console.log('recaptcha loaded')
-    }
-
     return (
         <>
       <Modal show={show} onHide={handleClose}>
@@ -101,11 +96,6 @@ const ModalForm = ({ handleClose, handleShow, show }) => {
                             <Button variant="secondary" onClick={handleClose}>Close</Button>
                             <Button type='submit' variant='primary' value='send'>Submit</Button>
                             </div>
-                            <Recaptcha
-                                sitekey="6Lcr-twZAAAAAC6eUnqjI8hoS8CE_fOn8nupgtYh"
-                                render="explicit"
-                                onloadCallback={recaptchaLoaded}
-                            />
                         </Form>
                     </ModalFormContainer>
                 </Modal.Body>

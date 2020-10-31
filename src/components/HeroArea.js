@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import Typical from 'react-typical'
 import { useSpring, animated } from 'react-spring'
-import { Button, Col, Container, Row, Image, Form, Modal } from 'react-bootstrap'
+import { Button, Col, Container, Row, Image } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import myImage from '../images/ringku-rahman.png'
-import emailjs from 'emailjs-com'
-import Recaptcha from 'react-recaptcha'
-import ModalFormContainer from './ModalFormContainer'
+import ModalForm from './ModalForm'
 
     
     // Image animation
@@ -26,63 +24,10 @@ const HeroArea = () => {
     const [props, met] = useSpring(() => ({ xy: [0, 0] }))
 
     // Modal state and function
-        const [show, setShow] = useState(false)
+        const [show, setShow] = useState(false);
 
-        const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
-    
-    // Modal sms state
-    const [success, setSuccess] = useState('')
-    const [fail, setFail] = useState('')
-
-    const sendEmail = (e) => {
-        e.preventDefault()
-
-        emailjs.sendForm('resume', 'template_3pvj7hq', e.target, 'user_toV7VpsuQCYFYlN1UxWA1')
-            .then((result) => {
-            setSuccess(result)
-            console.log(result.text);
-            }, (error) => {
-            setFail(error)
-            console.log(error.text);
-        })
-        e.target.reset()
-    }
-
-    // Multiple argument state
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        password: '',
-        message: '',
-    })
-    
-    // Form field validation
-    const handleBlur = (e) => {
-        let isFieldValid;
-        if (e.target.name === 'name') {
-            isFieldValid = e.target.value
-        }
-        if (e.target.name === 'email') {
-            // validation email
-            isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
-        }
-        if (e.target.name === 'password') {
-            // validation 1 uppercase 1 lowercase 1 number
-            isFieldValid = /^(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[0-9]){1})\S{6,20}$/.test(
-                e.target.value
-            );
-        }
-        if (isFieldValid) {
-        const newUserInfo = { ...user }
-        newUserInfo[e.target.name] = e.target.value
-        setUser(newUserInfo)
-        }
-    }
-
-    const recaptchaLoaded = () => {
-        console.log('recaptcha loaded')
-    }
+        const handleClose = () => setShow(false);
+        const handleShow = () => setShow(true);
 
     return (
         <section className='hero-area' id='home'>
@@ -110,59 +55,9 @@ const HeroArea = () => {
                         </Col>
                         
                         <hr />
-                        <a className='btn btn-secondary mr-3' href='https://drive.google.com/uc?export=download&id=1X1UkdI5VCoks15CzefgHyDHG59tyWyJF' target="_blank" rel="no-referrer">Download Resume</a>
-                        <Button onClick={handleShow}>Send Message</Button>
-                        
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                            <Modal.Title>Get In Touch</Modal.Title>
-                            </Modal.Header>
-                                    <Modal.Body>
-                                        <ModalFormContainer>
-                                            <Form onSubmit={sendEmail}>
-                                                {success && <p className='text-success text-center'>Message Send Successfully</p>}
-                                                {fail && <p className='text-danger text-center'>Message Failed</p>}
-                                                <label>Your Name</label>
-                                                <input
-                                                    className='form-control mb-3'
-                                                    type="text"
-                                                    name="name"
-                                                    onBlur={handleBlur}
-                                                    placeholder='Name' required />
-                                                <label>Email Address</label>
-                                                <input
-                                                    className='form-control mb-3'
-                                                    type="email"
-                                                    name="email"
-                                                    onBlur={handleBlur}
-                                                    placeholder='Email' required />
-                                                <label>Subject</label>
-                                                <input
-                                                    className='form-control mb-3'
-                                                    type="text"
-                                                    name="subject"
-                                                    onBlur={handleBlur}
-                                                    placeholder='Subject' required />
-                                                <label>Message</label>
-                                                <textarea
-                                                    className='form-control'
-                                                    name="message"
-                                                    onBlur={handleBlur}
-                                                    rows="3" required />
-                                                <div className='mt-4'>
-                                                <Button variant="secondary" onClick={handleClose}>Close</Button>
-                                                <Button type='submit' variant='primary' value='send'>Submit</Button>
-                                                </div>
-                                                <Recaptcha
-                                                    sitekey="6Lcr-twZAAAAAC6eUnqjI8hoS8CE_fOn8nupgtYh"
-                                                    render="explicit"
-                                                    onloadCallback={recaptchaLoaded}
-                                                />
-                                            </Form>
-                                        </ModalFormContainer>
-                                    </Modal.Body>
-                            </Modal>
-
+                                <a className='btn btn-secondary mr-3' href='https://drive.google.com/uc?export=download&id=1X1UkdI5VCoks15CzefgHyDHG59tyWyJF' target="_blank" rel="no-referrer">Download Resume</a>
+                                <Button onClick={handleShow}>Send Message</Button>
+                        <ModalForm handleShow={handleShow} handleClose={handleClose} show={show}></ModalForm>
                     </Col>
                     <Col xs={12} sm={12} md={6}>
                         <animated.div
@@ -184,7 +79,7 @@ const HeroArea = () => {
     );
 };
 
-export default HeroArea
+export default HeroArea;
 
 
 
