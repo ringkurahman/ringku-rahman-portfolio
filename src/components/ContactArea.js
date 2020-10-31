@@ -149,4 +149,4 @@ const ContactArea = () => {
     );
 };
 
-export default ContactArea;
+export default ContactArea

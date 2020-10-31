@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Blog = () => {
     return (
@@ -8,4 +8,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default Blog

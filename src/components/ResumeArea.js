@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from "react-spring"
 import './ResumeArea.css'
 
 
@@ -119,4 +119,4 @@ const ResumeArea = () => {
     );
 };
 
-export default ResumeArea;
+export default ResumeArea

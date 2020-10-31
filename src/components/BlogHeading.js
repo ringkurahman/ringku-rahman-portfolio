@@ -1,5 +1,5 @@
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 
 const BlogHeading = () => {
     return (
@@ -13,4 +13,4 @@ const BlogHeading = () => {
     );
 };
 
-export default BlogHeading;
+export default BlogHeading

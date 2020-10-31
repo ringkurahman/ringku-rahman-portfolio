@@ -79,7 +79,7 @@ const HeroArea = () => {
     );
 };
 
-export default HeroArea;
+export default HeroArea
 
 
 

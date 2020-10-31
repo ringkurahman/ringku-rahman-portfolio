@@ -114,4 +114,4 @@ const ModalForm = ({ handleClose, handleShow, show }) => {
     );
 };
 
-export default ModalForm;
+export default ModalForm

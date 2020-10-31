@@ -1,0 +1,48 @@
+.effect-1 {
+  animation: rotate 1.8s linear infinite;
+}
+.effect-2 {
+  animation: rotate 1.2s linear reverse infinite;
+}
+.effect-3{
+  animation: rotates 1.2s linear reverse infinite;
+}
+
+@keyframes rotate {
+  0% {
+    top: 0;
+    left: 8%;
+  }
+  25% {
+    top: 8%;
+    left: 0%;
+  }
+  50% {
+    top: 16%;
+    left: 8%;
+  }
+
+  100% {
+    top: 0;
+    left: 8%;
+  }
+}
+@keyframes rotates {
+  0% {
+    top: 0;
+    right: 8%;
+  }
+  25% {
+    top: 8%;
+    right: 0%;
+  }
+  50% {
+    top: 16%;
+    right: 6%;
+  }
+
+  100% {
+    top: 0;
+    right: 8%;
+  }
+}
