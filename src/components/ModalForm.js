@@ -12,7 +12,7 @@ const ModalForm = ({ handleClose, handleShow, show }) => {
     const sendEmail = (e) => {
         e.preventDefault()
 
-        emailjs.sendForm('resume', 'template_3pvj7hq', e.target, 'user_toV7VpsuQCYFYlN1UxWA1')
+        emailjs.sendForm('my_resume', 'template_w9rfl1n', e.target, 'user_toV7VpsuQCYFYlN1UxWA1')
             .then((result) => {
             setSuccess(result)
             console.log(result.text);
@@ -62,41 +62,41 @@ const ModalForm = ({ handleClose, handleShow, show }) => {
         </Modal.Header>
                 <Modal.Body>
                     <ModalFormContainer>
-                        <Form onSubmit={sendEmail}>
-                            {success && <p className='text-success text-center'>Message Send Successfully</p>}
-                            {fail && <p className='text-danger text-center'>Message Failed</p>}
-                            <label>Your Name</label>
-                            <input
-                                className='form-control mb-3'
-                                type="text"
-                                name="name"
-                                onBlur={handleBlur}
-                                placeholder='Name' required />
-                            <label>Email Address</label>
-                            <input
-                                className='form-control mb-3'
-                                type="email"
-                                name="email"
-                                onBlur={handleBlur}
-                                placeholder='Email' required />
-                            <label>Subject</label>
-                            <input
-                                className='form-control mb-3'
-                                type="text"
-                                name="subject"
-                                onBlur={handleBlur}
-                                placeholder='Subject' required />
-                            <label>Message</label>
-                            <textarea
-                                className='form-control'
-                                name="message"
-                                onBlur={handleBlur}
-                                rows="3" required />
-                            <div className='mt-4'>
-                            <Button variant="secondary" onClick={handleClose}>Close</Button>
-                            <Button type='submit' variant='primary' value='send'>Submit</Button>
-                            </div>
-                        </Form>
+                        <form className="contact-form" onSubmit={sendEmail}>
+                                {success && <p className='text-success text-center'>Message Send Successfully</p>}
+                                {fail && <p className='text-danger text-center'>Message Failed</p>}
+                                
+                                <input className='form-control mb-3' type="hidden" name="number" />
+                                <label>Name</label>
+                                <input
+                                    className='form-control mb-3'
+                                    type="text"
+                                    name="name"
+                                    onBlur={handleBlur}
+                                />
+                                <label>Email</label>
+                                <input
+                                    className='form-control mb-3'
+                                    type="email"
+                                    name="email"
+                                    onBlur={handleBlur}
+                                />
+                                <label>Subject</label>
+                                <input
+                                    className='form-control mb-3'
+                                    type="text"
+                                    name="subject"
+                                    onBlur={handleBlur}
+                                />
+                                <label>Message</label>
+                                <textarea
+                                    className='form-control mb-3'
+                                    name="message"
+                                    onBlur={handleBlur}
+                            />
+                                <input className='btn btn-secondary mr-2' type="submit" value="Close" onClick={handleClose} />
+                                <input className='btn btn-primary' type="submit" value="Send" />
+                            </form>
                     </ModalFormContainer>
                 </Modal.Body>
       </Modal>
